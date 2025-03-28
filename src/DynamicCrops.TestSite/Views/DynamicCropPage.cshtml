@@ -1,0 +1,48 @@
+﻿@using mttblss.DynamicCrops
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+@{
+	Layout = null;
+    var image = Model.Value<MediaWithCrops>("image");
+    var dynamicCrops = image?.ToDynamicCrops();
+    var haveData = dynamicCrops is { WideCrop: not null, NarrowCrop: not null };
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic Crops - @Model.Name</title>
+    <link rel="stylesheet" href="/style.css">
+    @if (dynamicCrops is { WideCrop: not null, NarrowCrop: not null })
+    {
+        var heightPercentage = dynamicCrops.ImageAspectRatio / dynamicCrops.WideCrop.AspectRatio * 100;
+        var widthPercentage = (1/dynamicCrops.ImageAspectRatio) / (1/dynamicCrops.NarrowCrop.AspectRatio) * 100;
+        <style>
+        @@keyframes ratios {
+            0% {width: 100%; height: @(heightPercentage)%;}
+            20% {width: 100%; height: @(heightPercentage)%;}
+            35% {width: 75%; height: 75%;}
+            50% {width: @widthPercentage%; height: 100.00%;}
+            70% {width: @widthPercentage%; height: 100.00%;}
+            85% {width: 75%; height: 75%;}
+            100% {width: 100%; height: @(heightPercentage)%;}
+        }
+        </style>
+    }
+</head>
+<body>
+@if (image is not null && dynamicCrops is { WideCrop: not null, NarrowCrop: not null })
+{
+    <div class="outer-container">
+        <div class="container" style="@dynamicCrops.AspectRatioCss()">
+            <img src="@image.Url()" style="@dynamicCrops.AspectRatioCss() @dynamicCrops.ObjectPositionCss() animation: ratios 20s infinite;" alt="">
+        </div>
+        <div class="credit">
+            @Html.Raw(Model.Value<string>("caption"))
+        </div>
+    </div>
+}
+</body>
+</html>

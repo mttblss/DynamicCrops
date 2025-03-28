@@ -1,0 +1,14 @@
+{
+    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json", 
+    "AuthorDetails": {
+      "Name": "Matt Bliss",
+      "ImageUrl": "https://github.com/mttblss.png"
+    },
+    "Category": "",
+    "Description": "",
+    "LicenseTypes": [ "Free" ],
+    "IssueTrackerUrl": "https://github.com/mttblss/DynamicCrops/issues",
+    "PackageType": "Package",
+    "Tags": [],
+    "Title": "Dynamic Crops "
+  }

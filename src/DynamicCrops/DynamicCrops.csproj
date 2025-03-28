@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <StaticWebAssetBasePath>App_Plugins</StaticWebAssetBasePath>
+    <ContentTargetFolders>.</ContentTargetFolders>
+    <Product>mttblss.DynamicCrops</Product>
+    <PackageId>mttblss.DynamicCrops</PackageId>
+    <Title>DynamicCrops</Title>
+    <Description>...</Description>
+    <PackageTags>umbraco;umbraco-marketplace</PackageTags>
+    <RootNamespace>mttblss.DynamicCrops</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <Authors>Matt Bliss</Authors>
+    <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Matt Bliss</Copyright>
+    <PackageProjectUrl>https://github.com/mttblss/DynamicCrops</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mttblss/DynamicCrops</RepositoryUrl>
+    <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.0.0" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.7.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\docs\README_nuget.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\" />
+  </ItemGroup>
+
+</Project>
