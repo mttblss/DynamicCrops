@@ -357,3 +357,4 @@ src/.idea
 
 # Mac
 .DS_Store
+src/DynamicCrops.TestSite/umbraco/Data/Umbraco.sqlite.db*
