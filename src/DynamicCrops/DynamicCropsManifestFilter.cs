@@ -1,6 +1,6 @@
 using Umbraco.Cms.Core.Manifest;
 
-namespace Umbraco.Community.DynamicCrops
+namespace mttblss.DynamicCrops
 {
     internal class DynamicCropsManifestFilter : IManifestFilter
     {
