@@ -22,20 +22,24 @@ public class Crops
         var leftValue = NarrowCrop.HasCoordinates()
             ? (NarrowCrop!.TopLeft!.Left + NarrowCrop.BottomRight!.Left) / 2
             : ImageFocalPoint?.Left ?? defaultValue;
-        if (NarrowCrop == null) return leftValue;
-        var leftScale = (ImageAspectRatio + NarrowCrop.AspectRatio / 2) / ImageAspectRatio;
-        var leftAdjust = leftValue + leftValue * leftScale - leftScale / 2;
-        return InRange(leftAdjust);
+        if (NarrowCrop == null) { return leftValue; }
+        var leftAmount =
+            ((ImageAspectRatio * leftValue) - (NarrowCrop.AspectRatio / 2)) / NarrowCrop.AspectRatio;
+        var rightAmount =
+            ((ImageAspectRatio * (1-leftValue)) - (NarrowCrop.AspectRatio / 2)) / NarrowCrop.AspectRatio;
+        return InRange(leftAmount / (leftAmount + rightAmount));
     }
 
     public decimal BackgroundTop(decimal defaultValue = 0.5m)
     {
         var topValue = WideCrop.HasCoordinates()
-            ? (WideCrop!.TopLeft!.Top +  WideCrop.BottomRight!.Top) / 2
+            ? (WideCrop!.TopLeft!.Top + WideCrop.BottomRight!.Top) / 2
             : ImageFocalPoint?.Top ?? defaultValue;
-        if (WideCrop == null) return topValue;
-        var topScale = Inverse(ImageAspectRatio) / (Inverse(ImageAspectRatio) + Inverse(WideCrop.AspectRatio) / 2);
-        var topAdjust = topValue + topValue * topScale - topScale / 2;
-        return InRange(topAdjust);
+        if (WideCrop == null) { return topValue; }
+        var topAmount = ((Inverse(ImageAspectRatio) * topValue) - (Inverse(WideCrop.AspectRatio) / 2)) /
+                        Inverse(WideCrop.AspectRatio);
+        var bottomAmount = ((Inverse(ImageAspectRatio) * (1 - topValue)) - (Inverse(WideCrop.AspectRatio) / 2)) /
+                           Inverse(WideCrop.AspectRatio);
+        return InRange(topAmount / (topAmount + bottomAmount));
     }
 }
