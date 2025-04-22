@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\docs\logo.png">
+    <None Include="..\..\docs\Dynamic Crops.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
