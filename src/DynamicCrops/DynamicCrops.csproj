@@ -35,6 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\docs\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Core\" />
   </ItemGroup>
 
