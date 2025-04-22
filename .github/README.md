@@ -35,7 +35,7 @@ Once installed, visit the 'Settings' section in the Umbraco back office:
       - For both crops the actual pixel count does not matter, what is important here is the correct ratio between the width and height.
    - Save the Data Type
 
-![Data Type Screenshot](https://github.com/mttblss/DynamicCrops/blob/develop/docs/screenshots/banner-picker.png)
+![Data Type Screenshot](https://raw.githubusercontent.com/mttblss/DynamicCrops/main/docs/screenshots/banner-picker.png)
 
 - Use your new data type in the appropriate document type(s)
 - Wire up the positioning in your view(s)
