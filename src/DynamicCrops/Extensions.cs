@@ -22,6 +22,16 @@ public static class Extensions
         return image._crops.ObjectPositionCss();
     }
 
+    public static string BackgroundPositionCss(this MediaWithCrops image)
+    {
+        return image.ToDynamicCrops()._crops.BackgroundPositionCss();
+    }
+
+    public static string ObjectPositionCss(this MediaWithCrops image)
+    {
+        return image.ToDynamicCrops()._crops.ObjectPositionCss();
+    }
+
     public static string? BackgroundPositionClass(this DynamicCrops image)
     {
         return image._crops.BackgroundPositionClass();
@@ -31,4 +41,6 @@ public static class Extensions
     {
         return image._crops.AspectRatioCss();
     }
+
+
 }

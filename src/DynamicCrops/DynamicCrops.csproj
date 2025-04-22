@@ -8,11 +8,11 @@
     <Product>mttblss.DynamicCrops</Product>
     <PackageId>mttblss.DynamicCrops</PackageId>
     <Title>DynamicCrops</Title>
-    <Description>...</Description>
+    <Description>An extension for the Umbraco CMS to handle images in variable aspect ratio containers, ensuring that the focal point of the image is always respected.</Description>
     <PackageTags>umbraco;umbraco-marketplace</PackageTags>
     <RootNamespace>mttblss.DynamicCrops</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.1.0</Version>
+    <Version>0.13.0-alpha</Version>
     <Authors>Matt Bliss</Authors>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Matt Bliss</Copyright>
     <PackageProjectUrl>https://github.com/mttblss/DynamicCrops</PackageProjectUrl>

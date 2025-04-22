@@ -22,11 +22,9 @@
         <style>
         @@keyframes ratios {
             0% {width: 100%; height: @(heightPercentage)%;}
-            20% {width: 100%; height: @(heightPercentage)%;}
-            35% {width: 75%; height: 75%;}
+            25% {width: 100%; height: @(heightPercentage)%;}
             50% {width: @widthPercentage%; height: 100.00%;}
-            70% {width: @widthPercentage%; height: 100.00%;}
-            85% {width: 75%; height: 75%;}
+            75% {width: @widthPercentage%; height: 100.00%;}
             100% {width: 100%; height: @(heightPercentage)%;}
         }
         </style>
@@ -37,10 +35,12 @@
 {
     <div class="outer-container">
         <div class="container" style="@dynamicCrops.AspectRatioCss()">
-            <img src="@image.Url()" style="@dynamicCrops.AspectRatioCss() @dynamicCrops.ObjectPositionCss() animation: ratios 20s infinite;" alt="">
+            <img src="@image.Url()" style="@dynamicCrops.AspectRatioCss() @dynamicCrops.ObjectPositionCss() animation: ratios 15s infinite;" alt="">
         </div>
         <div class="credit">
             @Html.Raw(Model.Value<string>("caption"))
+            <p>@image.ObjectPositionCss()</p>
+            <p>@image.BackgroundPositionCss()</p>
         </div>
     </div>
 }
