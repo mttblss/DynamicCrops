@@ -48,14 +48,9 @@ In a view we can set a focal-point position using an inline `style` attribute to
 - For a background image use `@Model.Image.BackgroundPositionCss()` in the style tag (you are most likely already injecting the URL here too)
 
 These extension methods take the standard Umbraco `MediaWithCrops` object and output the following markup respectively
-- `object-position: `[left]`% `[top]`%;` or
-- `background-position: `[left]`% `[top]`%;`
-
+- `object-position: 30% 66%;` or
+- `background-position: 30% 66%;`
 
 ## Contributing
 
 Contributions to this package are most welcome! Please read the [Contributing Guidelines](CONTRIBUTING.md).
-
-## Acknowledgments
-
-TODO
