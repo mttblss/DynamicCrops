@@ -1,14 +1,27 @@
 {
-    "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json", 
-    "AuthorDetails": {
-      "Name": "Matt Bliss",
-      "ImageUrl": "https://github.com/mttblss.png"
-    },
-    "Category": "",
-    "Description": "",
-    "LicenseTypes": [ "Free" ],
-    "IssueTrackerUrl": "https://github.com/mttblss/DynamicCrops/issues",
-    "PackageType": "Package",
-    "Tags": [],
-    "Title": "Dynamic Crops "
-  }
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AlternateCategory": "Developer Tools",
+  "AlternatePackageNames": [
+    "Dynamic Crops"
+  ],  
+  "AuthorDetails": {
+    "Name": "Matt Bliss",
+    "Url": "https://mattbliss.uk/",
+    "ImageUrl": "https://github.com/mttblss.png"
+  },
+  "Category": "Editor Tools",
+  "Description": "Handles background images in variable aspect ratio containers ensuring that the focal point of the image is always respected.",
+  "LicenseTypes": [
+    "Free"
+  ],
+  "IssueTrackerUrl": "https://github.com/mttblss/DynamicCrops/issues",
+  "PackageType": "Package",
+  "Tags": [],
+  "Title": "Dynamic Crops ",
+  "VersionSpecificPackageIds": [
+    {
+      "UmbracoMajorVersion": 13,
+      "PackageId": "mttblss.DynamicCrops"
+    }
+  ]
+}
