@@ -17,11 +17,5 @@
   "IssueTrackerUrl": "https://github.com/mttblss/DynamicCrops/issues",
   "PackageType": "Package",
   "Tags": [],
-  "Title": "Dynamic Crops ",
-  "VersionSpecificPackageIds": [
-    {
-      "UmbracoMajorVersion": 13,
-      "PackageId": "mttblss.DynamicCrops"
-    }
-  ]
+  "Title": "Dynamic Crops "
 }
