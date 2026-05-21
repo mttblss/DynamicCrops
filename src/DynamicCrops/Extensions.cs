@@ -32,9 +32,14 @@ public static class Extensions
         return image.ToDynamicCrops()._crops.ObjectPositionCss();
     }
 
-    public static string? BackgroundPositionClass(this DynamicCrops image)
+    public static string BackgroundPositionClass(this DynamicCrops image)
     {
         return image._crops.BackgroundPositionClass();
+    }
+
+    public static string ObjectPositionClass(this DynamicCrops image)
+    {
+        return image._crops.ObjectPositionClass();
     }
 
     public static string AspectRatioCss(this DynamicCrops image)

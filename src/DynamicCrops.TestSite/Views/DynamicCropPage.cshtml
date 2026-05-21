@@ -15,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dynamic Crops - @Model.Name</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/App_Plugins/DynamicCrops/css/dynamiccrops.css">
     @if (dynamicCrops is { WideCrop: not null, NarrowCrop: not null })
     {
         var heightPercentage = dynamicCrops.ImageAspectRatio / dynamicCrops.WideCrop.AspectRatio * 100;
@@ -35,7 +36,7 @@
 {
     <div class="outer-container">
         <div class="container" style="@dynamicCrops.AspectRatioCss()">
-            <img src="@image.Url()" style="@dynamicCrops.AspectRatioCss() @dynamicCrops.ObjectPositionCss() animation: ratios 15s infinite;" alt="">
+            <img src="@image.Url()" class="@dynamicCrops.ObjectPositionClass()" style="@dynamicCrops.AspectRatioCss() animation: ratios 15s infinite;" alt="">
         </div>
         <div class="credit">
             @Html.Raw(Model.Value<string>("caption"))

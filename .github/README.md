@@ -42,14 +42,47 @@ Once installed, visit the 'Settings' section in the Umbraco back office:
 
 ## Views
 
-In a view we can set a focal-point position using an inline `style` attribute to the element to define the calculated position based on the crops.  
+There are two approaches to applying focal-point positions in your views.
 
-- For an `<img>` tag add `style="@Model.Image.ObjectPositionCss()"`
-- For a background image use `@Model.Image.BackgroundPositionCss()` in the style tag (you are most likely already injecting the URL here too)
+### Option 1 — Inline styles
 
-These extension methods take the standard Umbraco `MediaWithCrops` object and output the following markup respectively
-- `object-position: 30% 66%;` or
-- `background-position: 30% 66%;`
+Add the calculated position directly to an element via an inline `style` attribute.
+
+**For an `<img>` tag:**
+
+```html
+<img src="@Model.BannerImage.Url()" style="@Model.BannerImage.ObjectPositionCss()" alt="">
+```
+
+**For a background image:**
+
+```html
+<div style="background-image: url('@Model.BannerImage.Url()'); @Model.BannerImage.BackgroundPositionCss()">
+```
+
+These extension methods accept a `MediaWithCrops` object and output the calculated focal-point position, for example `object-position: 30% 66%;` or `background-position: 30% 66%;`.
+
+> **Note:** Inline styles require `unsafe-inline` in your Content Security Policy.
+
+### Option 2 — CSS classes (CSP-friendly for `<img>` elements)
+
+The package includes a pre-built stylesheet (minified, 5 KB) that replaces inline styles with utility classes. For `<img>` tags this approach is fully compatible with a strict CSP — the image URL goes in the `src` attribute, not a style, so no inline styles are required at all.
+
+**1. Add the stylesheet to your layout**
+
+```html
+<link rel="stylesheet" href="/App_Plugins/DynamicCrops/css/dynamiccrops.css">
+```
+
+**2. Use `ObjectPositionClass()` in your view**
+
+```html
+<img src="@Model.BannerImage.Url()" class="@Model.BannerImage.ObjectPositionClass()" alt="">
+```
+
+This outputs three classes — a scoped marker and two position utility classes, for example `dc-op opx30 opy66`. The marker class (`dc-op`) applies `object-fit: cover` and `object-position`, reading the values from CSS custom properties (`--dc-x`, `--dc-y`) set by the position classes and scoped entirely to that element.
+
+> **Background images and CSP:** `BackgroundPositionClass()` is included for completeness and handles `background-position` via CSS classes, but a content-managed background image still requires an inline style for the URL itself, `style="background-image: url('...')`, which cannot be avoided without JavaScript. For strict CSP, the recommended approach is to use an `<img>` tag with `object-fit: cover` rather than a CSS background image — it achieves the same visual result, is more accessible, and works fully within a strict CSP.
 
 ## Contributing
 
