@@ -4,7 +4,8 @@ public static class Extensions
 {
     public static int ToIntPercent(this decimal value)
     {
-        return (int)Math.Round(ToDecimalPercent(value),0);
+        var percent = (int)Math.Round(ToDecimalPercent(value), 0);
+        return percent > 100 ? 100 : percent;
     }
 
     public static decimal ToDecimalPercent(this decimal value)
@@ -19,19 +20,22 @@ public static class Extensions
 
     public static string BackgroundPositionCss(this Crops image)
     {
-        return
-            $"background-position: {image.BackgroundLeft().ToIntPercent()}% {image.BackgroundTop().ToIntPercent()}%;";
+        return $"background-position: {image.BackgroundLeft().ToIntPercent()}% {image.BackgroundTop().ToIntPercent()}%; background-size: cover;";
     }
 
     public static string ObjectPositionCss(this Crops image)
     {
-        return
-            $"object-position: {image.BackgroundLeft().ToIntPercent()}% {image.BackgroundTop().ToIntPercent()}%;";
+        return $"object-position: {image.BackgroundLeft().ToIntPercent()}% {image.BackgroundTop().ToIntPercent()}%; object-fit: cover;";
     }
 
-    public static string? BackgroundPositionClass(this Crops image)
+    public static string BackgroundPositionClass(this Crops image)
     {
-        return $"fpx{image.BackgroundLeft().ToIntPercent()} fpy{image.BackgroundTop().ToIntPercent()}";
+        return $"dc-bp bpx{image.BackgroundLeft().ToIntPercent()} bpy{image.BackgroundTop().ToIntPercent()}";
+    }
+
+    public static string ObjectPositionClass(this Crops image)
+    {
+        return $"dc-op opx{image.BackgroundLeft().ToIntPercent()} opy{image.BackgroundTop().ToIntPercent()}";
     }
 
     public static string AspectRatioCss(this Crops image)
